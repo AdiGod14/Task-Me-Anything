@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Me Anything!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1>Task Me Anything!</h1>
+        </div>
+
+        <div class="quote">
+            <h3>Master Your Tasks, Master Your Day</h3>
+        </div>
+
+        <div class="task-form-container">
+            <h2 id="form-title">Add New Task</h2>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-name">Task Name:</label>
+                    <input type="text" id="task-name" placeholder="Enter task name" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-description">Description:</label>
+                    <textarea id="task-description" placeholder="Enter task description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="due-date">Due Date:</label>
+                    <input type="date" id="due-date">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="save-task-btn">Add Task</button>
+                    <button type="button" id="cancel-edit-btn" class="hidden">Cancel</button>
+                </div>
+                <input type="hidden" id="edit-task-id">
+            </form>
+        </div>
+
+        <div class="tasks-container">
+            <div class="tasks-header">
+                <h2>Your Tasks</h2>
+                <div class="tasks-controls">
+                    
+                    <div class="filter-container">
+                        <select id="status-filter">
+                            <option value="all">All Tasks</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="notification" class="notification hidden"></div>
+
+            <div class="tasks-list" id="tasks-list">
+                <!-- Tasks will be displayed here -->
+                <div class="empty-state">
+                    <p>No tasks found. Add a new task to get started!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Item Template -->
+    <template id="task-template">
+        <div class="task-item" data-id="">
+            <div class="task-status">
+                <input type="checkbox" class="task-checkbox">
+            </div>
+            <div class="task-content">
+                <h3 class="task-name"></h3>
+                <p class="task-description"></p>
+                <p class="task-due-date"></p>
+            </div>
+            <div class="task-actions">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
